@@ -4,7 +4,7 @@ public class View {
     Scanner leia = new Scanner (System.in);
 
      public int menu (){
-        System.out.println ("""
+        System.out.println("""
             === MENU PRINCIPAL HOTEL ===
             1. Cadastrar hóspede
             2. Cadastrar quarto
@@ -19,31 +19,50 @@ public class View {
             11. Cancelar uma reserva
             0. Sair do sistema
             """);
-        System.out.print ("Digite a opção que deseja: ");
+        System.out.println("Digite a opção que deseja: ");
+        System.out.print(">");
         int opcao = leia.nextInt();
         leia.nextLine();
         return opcao;
     }
 
     public String cadastrarNome(){
-        System.out.print ("Digite o nome do hóspede: ");
-        String nome = leia.nextLine();
-        return nome;
+        System.out.print("Digite o nome do hóspede: ");
+        return leia.nextLine();
     }
     
     public String cadastrarDocumento (){
-        System.out.print ("Digite o documento do hóspede: ");
-        String documento = leia.nextLine();
-        return documento;
+        System.out.print("Digite o documento do hóspede: ");
+        return leia.nextLine();
     }
     
     public String cadastrarTelefone(){
-        System.out.print ("Digite o telefone do hóspede: ");
-        String telefone = leia.nextLine();
-        return telefone;
+        System.out.print("Digite o telefone do hóspede: ");
+        return leia.nextLine();
     }
 
-    public void listarHospede(HospedeModel hospede){
-        System.out.println (hospede);
+    public String cadastrarNumero(){
+        System.out.print("Digite o número do quarto: ");
+        return leia.nextLine();
     }
+
+    public String cadastrarTipo(){
+        System.out.println("Digite o tipo do quarto: ");
+        return leia.nextLine();
+    }
+
+    public String cadastrarPreco(){
+        System.out.println("Digite o preço do quarto: ");
+        return leia.nextLine();
+    }
+
+    public void erroCatch(){
+        System.out.println("Erro, digite novamente.");
+    }
+
+    public void sair(){
+        System.out.println("Saindo...");
+    }
+
+    public void 
 }

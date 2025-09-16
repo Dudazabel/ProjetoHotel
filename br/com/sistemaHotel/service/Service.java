@@ -7,25 +7,41 @@ public class Service {
 
     public void Gerenciar(int opcao, View atendente) {
 
+        String nome;
+        String telefone;
+        String documento;
+        int numero;
+        String tipo;
+        double preco;
+
         switch (opcao) {
 
             case 0 -> {
-                System.out.println ("Saindo... ;)");
+                atendente.sair();
             }
+
             case 1 -> {
-                String nome = atendente.cadastrarNome();
-                String telefone = atendente.cadastrarTelefone();
-                String documento = atendente.cadastrarDocumento();
+                nome = atendente.cadastrarNome();
+                telefone = atendente.cadastrarTelefone();
+                documento = atendente.cadastrarDocumento();
 
                 HospedeModel hospede = new HospedeModel (nome, telefone, documento);
                 hospedes.add(hospede);
             }
-            case 2 -> {
-                for (int i = 0; i < hospedes.size(); i++){
-                    HospedeModel hospede = hospedes.get(i);
 
-                    System.out.println ("Índice: "+i);
-                    atendente.listarHospede(hospede);
+            case 2 -> {
+                try{
+                    String numeroC = atendente.cadastrarNumero();
+                    numero = Integer.parseInt(numeroC);
+                }catch (NumberFormatException erro){
+                    atendente.erroCatch();
+                }
+                tipo = atendente.cadastrarTipo();
+                try{
+                    String precoC = atendente.cadastrarPreco();
+                    preco = Double.parseDouble(precoC);
+                }catch(NumberFormatException erro){
+                    atendente.erroCatch();
                 }
             }
             case 3 -> {
