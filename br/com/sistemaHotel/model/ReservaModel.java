@@ -2,6 +2,7 @@ public class ReservaModel {
 
     private String dataEntrada;
     private String dataSaida;
+    
     private QuartoModel quartoModel = new QuartoModel();
     private HospedeModel hospedeModel = new HospedeModel();
 

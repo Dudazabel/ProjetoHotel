@@ -4,6 +4,10 @@ public class Service {
     Scanner leia = new Scanner (System.in);
 
     List<HospedeModel> hospedes = new ArrayList<>();
+    List<QuartoModel> quartos = new ArrayList<>();
+    List<ReservaModel> reservas = new ArrayList<>();
+
+    HospedeModel hospedeR = new HospedeModel();
 
     public void Gerenciar(int opcao, View atendente) {
 
@@ -13,6 +17,10 @@ public class Service {
         int numero;
         String tipo;
         double preco;
+        String hospede;
+        int quarto;
+        String dataEntrada;
+        String dataSaida;
 
         switch (opcao) {
 
@@ -43,12 +51,30 @@ public class Service {
                 }catch(NumberFormatException erro){
                     atendente.erroCatch();
                 }
+
+                QuartoModel quarto = new Quarto(numero, tipo, preco);
+                quartos.add(quarto);
+                
             }
+
             case 3 -> {
-                // pesquisar por CPF
+                hospede = atendente.cadastrarHospede();
+                try{
+                    String quartoR = atendente.cadastrarQuarto();
+                    quarto = Integer.parseInt(quertoR);
+                }catch(NumberFormatException erro){
+                    atendente.erroCatch();
+                }
+                dataEntrada = atendente.cadastrarDataEntrada();
+                dataSaida = atendente.cadastrarDataSaida();
+
+                ReservaModel reserva = new Reserva(hospede, quarto, dataEntrada, dataSaida);
+                reservas.add(reserva);
             }
             case 4 -> {
-                // remover por CPF
+                for(HospedeModel hospedeL : hospedes){
+                    
+                }
             }
             case 5 -> {
                 // atualizar hóspede

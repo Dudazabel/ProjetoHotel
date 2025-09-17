@@ -64,5 +64,25 @@ public class View {
         System.out.println("Saindo...");
     }
 
-    public void 
+    public String cadastrarHospede(){
+        System.out.println("Digite o nome do hospede da reserva: ");
+        return leia.nextLine();
+    }
+
+    public String cadastrarQuarto(){
+        System.out.prntln("Digite o número do quarto da reserva: ");
+        return leia.nextLine();
+    }
+
+    public String cadastrarDataEntrada(){
+        System.out.println("Digite a data de entrada da reserva: ");
+        return leia.nextLine();
+    }
+
+    public String cadastrarDataSaida(){
+        System.out.println("Digite a data de saída da reserva: ");
+        return leia.nextLine();
+    }
+
+
 }
