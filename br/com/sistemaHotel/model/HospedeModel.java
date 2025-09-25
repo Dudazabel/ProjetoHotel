@@ -1,16 +1,18 @@
+package br.com.sistemaHotel.model;
+
 public class HospedeModel {
-    
+
     private String nome;
-    private int documento;
+    private String documento;
     private String telefone;
 
     public HospedeModel(){
         this.nome = "";
-        this.documento = 0;
+        this.documento = "";
         this.telefone = "";
     }
 
-    public HospedeModel(String nome, int documento, String telefone){
+    public HospedeModel(String nome, String documento, String telefone){
         this.nome = nome;
         this.documento = documento;
         this.telefone = telefone;
@@ -24,11 +26,11 @@ public class HospedeModel {
         this.nome = nome;
     }
 
-    public int getDocumento(){
+    public String getDocumento(){
         return this.documento;
     }
 
-    public void setTipo(int documento){
+    public void setTipo(String documento){
         this.documento = documento;
     }
 

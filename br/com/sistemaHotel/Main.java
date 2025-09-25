@@ -1,17 +1,21 @@
+import br.com.sistemaHotel.service.Service;
+import br.com.sistemaHotel.view.View;
 
 public class Main {
     public static void main(String[] args) {
 
-		int opcao = 0;
 
-		View atendente = new View();
-		Service atendimento = new Service();
+        int opcao = 0;
 
-		do {
+        View atendente = new View();
+        Service atendimento = new Service();
 
-			opcao = atendente.menu();
-			estoque.Gerenciar(opcao, atendente);
+        do {
 
-		} while (opcao != 0);
-	}
+            opcao = atendente.menu();
+            atendimento.Gerenciar(opcao, atendente);
+
+        } while (opcao != 0);
+
+    }
 }

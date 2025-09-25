@@ -1,3 +1,5 @@
+package br.com.sistemaHotel.model;
+
 public class QuartoModel {
 
     private int numero;
@@ -44,5 +46,5 @@ public class QuartoModel {
     public String toString(){
         return "Número: " + numero + " | Tipo: " + tipo + " | Preço: " + preco;
     }
-    
+
 }
