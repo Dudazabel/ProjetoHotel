@@ -30,7 +30,11 @@ public class HospedeModel {
         return this.documento;
     }
 
-    public void setTipo(String documento){
+    public void setDocumento(String documento) {
+		this.documento = documento;
+	}
+
+	public void setTipo(String documento){
         this.documento = documento;
     }
 
