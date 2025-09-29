@@ -1,4 +1,4 @@
-package br.com.sistemaHotel.model;
+package model;
 
 public class HospedeModel {
 

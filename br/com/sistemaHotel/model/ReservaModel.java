@@ -1,7 +1,7 @@
-package br.com.sistemaHotel.model;
+package model;
 
-import br.com.sistemaHotel.model.QuartoModel;
-import br.com.sistemaHotel.model.HospedeModel;
+import model.QuartoModel;
+import model.HospedeModel;
 
 public class ReservaModel {
 

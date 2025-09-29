@@ -1,5 +1,5 @@
-import br.com.sistemaHotel.service.Service;
-import br.com.sistemaHotel.view.View;
+import service.Service;
+import view.View;
 
 public class Main {
     public static void main(String[] args) {

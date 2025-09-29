@@ -1,4 +1,4 @@
-package br.com.sistemaHotel.view;
+package view;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,21 +10,21 @@ public class View {
         int opcao = -1;
         boolean entradaValida = false;
         do {
-            System.out.println("""
-                \n=== MENU PRINCIPAL HOTEL ===
-                1. Cadastrar hóspede
-                2. Cadastrar quarto
-                3. Cadastrar reserva
-                4. Listar todos os hóspedes
-                5. Listar todos os quartos
-                6. Listar todas as reservas
-                7. Pesquisar hóspede por nome
-                8. Pesquisar quarto por tipo
-                9.  Pesquisar reserva por nome do hóspede
-                10. Editar dados de um hóspede
-                11. Cancelar uma reserva
-                0. Sair do sistema
-                """);
+            System.out.println(
+                "\n=== MENU PRINCIPAL HOTEL ===\n" +
+                "1. Cadastrar hóspede\n" +
+                "2. Cadastrar quarto\n" +
+                "3. Cadastrar reserva\n" +
+                "4. Listar todos os hóspedes\n" +
+                "5. Listar todos os quartos\n" +
+                "6. Listar todas as reservas\n" +
+                "7. Pesquisar hóspede por nome\n" +
+                "8. Pesquisar quarto por tipo\n" +
+                "9.  Pesquisar reserva por nome do hóspede\n" +
+                "10. Editar dados de um hóspede\n" +
+                "11. Cancelar uma reserva\n" +
+                "0. Sair do sistema"
+            );
             System.out.println("Digite a opção que deseja: ");
             System.out.print("> ");
             try {
