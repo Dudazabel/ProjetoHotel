@@ -1,13 +1,12 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import model.HospedeModel;
 import model.QuartoModel;
 import model.ReservaModel;
 import view.View;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Service {
 	Scanner leia = new Scanner(System.in);
@@ -38,8 +37,8 @@ public class Service {
 				break;
 			}
 
-			case 1 :{
-				nome = atendente.cadastrarNome();
+			case 1 : { //Cadastro de hóspede
+				nome = atendente.cadastrarNome(); 
 				telefone = atendente.cadastrarTelefone();
 				documento = atendente.cadastrarDocumento();
 
@@ -49,18 +48,19 @@ public class Service {
 				break;
 			}
 
-			case 2 :{
+			case 2 :{ // Cadastro de quarto
 				boolean entradaValida = false;
 				do {
 					String numeroC = atendente.cadastrarNumero();
-					try {
 
+					try { // Faz a verificação do número do quarto
 						numero = Integer.parseInt(numeroC);
 						entradaValida = true;
 
 					} catch (NumberFormatException erro) {
 						atendente.erroCatch();
 					}
+
 				} while (!entradaValida);
 
 				tipo = atendente.cadastrarTipo();
@@ -69,13 +69,15 @@ public class Service {
 
 				do {
 					String precoC = atendente.cadastrarPreco();
-					try {
+
+					try { // Faz a validação do preço do quarto
 						preco = Double.parseDouble(precoC);
 						entradaValida = true;
 
 					} catch (NumberFormatException erro) {
 						atendente.erroCatch();
 					}
+
 				} while (!entradaValida);
 
 				QuartoModel quartoM = new QuartoModel(numero, tipo, preco);
@@ -85,19 +87,21 @@ public class Service {
 
 			}
 
-			case 3 :{
+			case 3 : { // Cadastrar reserva
 				hospede = atendente.cadastrarHospede();
-
 				boolean entradaValida = false;
+
 				do {
 
 					String quartoR = atendente.cadastrarQuarto();
-					try {
+
+					try { // Valida o número do quarto
 						quarto = Integer.parseInt(quartoR);
 						entradaValida = true;
 					} catch (NumberFormatException erro) {
 						atendente.erroCatch();
 					}
+
 				} while (!entradaValida);
 				
 				dataEntrada = atendente.cadastrarDataEntrada();
@@ -109,7 +113,7 @@ public class Service {
 				break;
 			}
 
-			case 4 :{
+			case 4 : { // Listar hóspedes
 				if (hospedes.isEmpty()) {
 					System.out.println("\n❌ Nenhum hóspede cadastrado.");
 				} else {
@@ -125,7 +129,7 @@ public class Service {
 				break;
 			}
 
-			case 5 :{
+			case 5 : { // Listar quartos
 				if (quartos.isEmpty()) {
 					System.out.println("\n❌ Nenhum quarto cadastrado!");
 				} else {
@@ -138,7 +142,7 @@ public class Service {
 				break;
 			}
 
-			case 6 :{
+			case 6 : { // Listar reservas
 				if (reservas.isEmpty()) {
 					System.out.println("\n❌ Nenhuma reserva cadastrada!");
 				} else {
@@ -151,7 +155,7 @@ public class Service {
 				break;
 			}
 
-			case 7 :{ 
+			case 7 : { // Pesquisar hóspede
 				if (hospedes.isEmpty()) {
 					System.out.println("\n❌ Nenhum hóspede cadastrado.");
 					break;
@@ -173,7 +177,7 @@ public class Service {
 				break;
 			}
 
-			case 8 :{ 
+			case 8 : { // Pesquisar quarto por tipo
 				if (quartos.isEmpty()) {
 					System.out.println("\n❌ Nenhum quarto cadastrado.");
 					break;
@@ -195,7 +199,7 @@ public class Service {
 				break;
 			}
 
-			case 9 :{
+			case 9 : { // Pesquisar reserva pelo nome do hóspede
 				if (reservas.isEmpty()) {
 					System.out.println("\n❌ Nenhuma reserva cadastrada.");
 					break;
@@ -217,7 +221,7 @@ public class Service {
 				break;
 			}
 
-			case 10 :{
+			case 10 : { // Edição dos dados do hóspede
 				boolean encontrado = false;
 				String nomeBusca = atendente.perguntarNomeParaEditar();
 
@@ -249,7 +253,7 @@ public class Service {
 				break;
 			}
 
-			case 11 :{
+			case 11 : { // Cancelar reserva
 				String nomeBusca = atendente.perguntarNomeParaCancelarReserva();
 
 				if (reservas.isEmpty()) {
@@ -298,7 +302,7 @@ public class Service {
 				break;
 			}
 
-			default :{
+			default : {
 				System.out.println("\n❌ Opção inválida! Por favor, digite um dos números listados no menu.");
 				break;
 			}
