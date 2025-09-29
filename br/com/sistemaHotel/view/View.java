@@ -1,30 +1,41 @@
 package br.com.sistemaHotel.view;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class View {
     Scanner leia = new Scanner (System.in);
 
     public int menu (){
-        System.out.println("""
-            \n=== MENU PRINCIPAL HOTEL ===
-            1. Cadastrar hóspede
-            2. Cadastrar quarto
-            3. Cadastrar reserva
-            4. Listar todos os hóspedes
-            5. Listar todos os quartos
-            6. Listar todas as reservas
-            7. Pesquisar hóspede por nome
-            8. Pesquisar quarto por tipo
-            9.  Pesquisar reserva por nome do hóspede
-            10. Editar dados de um hóspede
-            11. Cancelar uma reserva
-            0. Sair do sistema
-            """);
-        System.out.println("Digite a opção que deseja: ");
-        System.out.print("> ");
-        int opcao = leia.nextInt();
-        leia.nextLine();
+        int opcao = -1;
+        boolean entradaValida = false;
+        do {
+            System.out.println("""
+                \n=== MENU PRINCIPAL HOTEL ===
+                1. Cadastrar hóspede
+                2. Cadastrar quarto
+                3. Cadastrar reserva
+                4. Listar todos os hóspedes
+                5. Listar todos os quartos
+                6. Listar todas as reservas
+                7. Pesquisar hóspede por nome
+                8. Pesquisar quarto por tipo
+                9.  Pesquisar reserva por nome do hóspede
+                10. Editar dados de um hóspede
+                11. Cancelar uma reserva
+                0. Sair do sistema
+                """);
+            System.out.println("Digite a opção que deseja: ");
+            System.out.print("> ");
+            try {
+                opcao = leia.nextInt();
+                leia.nextLine(); 
+                entradaValida = true;
+            } catch (InputMismatchException e) { 
+                System.out.println("\n❗ Erro: Por favor, digite apenas um número válido.");
+                leia.nextLine(); 
+            }
+        } while(!entradaValida);
         return opcao;
     }
 
@@ -99,6 +110,31 @@ public class View {
     public String pesquisarReserva(){
         System.out.print("Digite o nome do hóspede do qual deseja encontar a(s) reserva(s): ");
         return leia.nextLine();
+    }
+    
+    public String perguntarNomeParaEditar() {
+        System.out.print("\nDigite o nome do hóspede que deseja editar: ");
+        return leia.nextLine();
+    }
+
+    public String perguntarNomeParaCancelarReserva() {
+        System.out.print("\nDigite o nome do hóspede da reserva que deseja cancelar: ");
+        return leia.nextLine();
+    }
+    
+    public int escolherNumeroDaLista() {
+        System.out.print("\nDigite o número da reserva que deseja cancelar: ");
+        int escolha = 0;
+        
+        try {
+            escolha = leia.nextInt();
+            leia.nextLine(); 
+        } catch (java.util.InputMismatchException e) {
+          
+            System.out.println("❗ Por favor, digite apenas o número.");
+        } 
+            
+        return escolha;
     }
 
 
