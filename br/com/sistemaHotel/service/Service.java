@@ -88,7 +88,28 @@ public class Service {
 			}
 
 			case 3 : { // Cadastrar reserva
-				hospede = atendente.cadastrarHospede();
+
+				if(hospedes.isEmpty()){
+					System.out.println("\n❌ Não há nenhum hóspede cadastrado! Por favor, cadastre um hóspede antes.");
+					break;
+				}
+				if(quartos.isEmpty()){
+					System.out.println("\n❌ Não há nenhum quarto cadastrado! Por favor, cadastre um quarto antes.");
+					break;
+				}
+				boolean encontrado = false;
+				String hospedeCadastro = atendente.cadastrarHospede();
+
+				for(HospedeModel hospedeListar : hospedes){
+					if(hospedeListar.getNome().equalsIgnoreCase(hospedeCadastro)) {
+						encontrado = true;
+					}
+				}
+				if(!encontrado){
+					System.out.println("\n❌ Hóspede não encontrado, digite o nome exatamente igual.");
+					break;
+				}
+
 				boolean entradaValida = false;
 
 				do {
@@ -103,11 +124,22 @@ public class Service {
 					}
 
 				} while (!entradaValida);
+
+				encontrado = false;
+				for(QuartoModel quartoListar : quartos){
+					if(quartoListar.getNumero() == quarto){
+						encontrado = true;
+					}
+				}
+				if(!encontrado){
+					System.out.println("\n❌ Quarto não existe, digite um número equivalente.");
+					break;
+				}
 				
 				dataEntrada = atendente.cadastrarDataEntrada();
 				dataSaida = atendente.cadastrarDataSaida();
 
-				ReservaModel reserva = new ReservaModel(hospede, quarto, dataEntrada, dataSaida);
+				ReservaModel reserva = new ReservaModel(hospedeCadastro, quarto, dataEntrada, dataSaida);
 				reservas.add(reserva);
 				System.out.println("\n✔ Reserva realizada com sucesso!");
 				break;
